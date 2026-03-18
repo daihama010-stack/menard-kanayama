@@ -56,28 +56,36 @@ header.scrolled .hamburger span{background:var(--text);}
 .fb-sub:hover{background:var(--dark2);}
 
 /* HERO */
-.hero{min-height:100vh;background:var(--dark);display:flex;align-items:center;position:relative;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 25% 55%,rgba(184,149,106,0.08),transparent 55%),radial-gradient(ellipse at 75% 30%,rgba(126,154,122,0.04),transparent 50%);}
-.hero-ring{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:550px;height:550px;border:0.5px solid rgba(184,149,106,0.05);border-radius:50%;}
-.hero-ring::before{content:'';position:absolute;inset:70px;border:0.5px solid rgba(184,149,106,0.03);border-radius:50%;}
-.hero-inner{position:relative;z-index:1;width:100%;padding:120px 2.5rem 80px;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.hero-eyebrow{font-size:10px;color:rgba(184,149,106,0.5);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1.75rem;animation:fadeUp 0.8s ease 0.2s both;}
-.hero-h1{font-family:var(--serif);font-size:clamp(42px,5.5vw,72px);font-weight:300;color:#F7F3ED;letter-spacing:0.05em;line-height:1.1;margin-bottom:1.5rem;animation:fadeUp 0.8s ease 0.3s both;}
-.hero-h1 em{display:block;font-style:italic;color:var(--gl);font-size:0.75em;}
-.hero-p{font-size:13px;color:rgba(200,185,165,0.5);line-height:2;margin-bottom:2.5rem;animation:fadeUp 0.8s ease 0.4s both;}
+.hero{min-height:100vh;background:linear-gradient(135deg,#2A2318 0%,#1C1A17 40%,#22201C 100%);display:flex;align-items:center;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 60%,rgba(184,149,106,0.12),transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(126,154,122,0.06),transparent 50%);}
+/* 右側の写真プレースホルダー */
+.hero-photo{position:absolute;right:0;top:0;bottom:0;width:45%;background:linear-gradient(135deg,#2E2820 0%,#1E1C18 100%);overflow:hidden;}
+.hero-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,#1C1A17 0%,transparent 30%),linear-gradient(135deg,rgba(184,149,106,0.06),transparent);}
+.hero-photo-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;}
+.hero-photo-icon{font-size:48px;opacity:0.15;}
+.hero-photo-text{font-size:11px;color:rgba(184,149,106,0.25);letter-spacing:0.15em;text-transform:uppercase;}
+/* 装飾ライン */
+.hero-deco{position:absolute;right:44%;top:0;bottom:0;width:0.5px;background:linear-gradient(to bottom,transparent,rgba(184,149,106,0.15),transparent);}
+.hero-ring{position:absolute;right:22%;top:50%;transform:translate(50%,-50%);width:400px;height:400px;border:0.5px solid rgba(184,149,106,0.04);border-radius:50%;pointer-events:none;}
+.hero-inner{position:relative;z-index:1;width:100%;padding:120px 2.5rem 80px;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-eyebrow{font-size:10px;color:rgba(184,149,106,0.55);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1.5rem;animation:fadeUp 0.8s ease 0.2s both;}
+.hero-h1{font-family:var(--serif);font-size:clamp(48px,5vw,68px);font-weight:300;color:#F7F3ED;letter-spacing:0.04em;line-height:1.15;margin-bottom:1.5rem;animation:fadeUp 0.8s ease 0.3s both;white-space:nowrap;}
+.hero-h1 em{display:block;font-style:italic;color:var(--gl);font-size:0.8em;white-space:nowrap;}
+.hero-p{font-size:13px;color:rgba(200,185,165,0.55);line-height:2;margin-bottom:2.5rem;animation:fadeUp 0.8s ease 0.4s both;}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp 0.8s ease 0.5s both;}
 .btn-g{display:inline-block;padding:14px 32px;background:var(--gold);color:white;text-decoration:none;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.3s;}
 .btn-g:hover{background:#A0844F;transform:translateY(-1px);}
 .btn-o{display:inline-block;padding:14px 32px;background:transparent;color:rgba(212,184,150,0.65);text-decoration:none;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;border:0.5px solid rgba(184,149,106,0.28);transition:all 0.3s;}
 .btn-o:hover{border-color:var(--gold);color:var(--gl);}
-.hero-card{background:rgba(255,255,255,0.04);border:0.5px solid rgba(184,149,106,0.14);padding:2.25rem;animation:fadeIn 1.2s ease 0.6s both;}
-.hc-tag{font-size:9px;color:rgba(184,149,106,0.4);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.5rem;}
-.hc-item{display:flex;align-items:flex-start;justify-content:space-between;padding:13px 0;border-bottom:0.5px solid rgba(255,255,255,0.04);}
+/* 料金カード - すっきりしたデザインに */
+.hero-card{background:rgba(247,243,237,0.05);border:0.5px solid rgba(184,149,106,0.2);padding:2rem;animation:fadeIn 1.2s ease 0.6s both;backdrop-filter:blur(4px);}
+.hc-tag{font-size:9px;color:rgba(184,149,106,0.5);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:0.5px solid rgba(184,149,106,0.1);}
+.hc-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:0.5px solid rgba(255,255,255,0.04);}
 .hc-item:last-child{border-bottom:none;}
 .hc-name{font-size:13px;color:#E8DFD0;font-weight:400;}
-.hc-sub{font-size:10px;color:rgba(200,185,165,0.35);margin-top:3px;}
-.hc-badge{display:inline-block;font-size:9px;padding:2px 8px;background:rgba(184,149,106,0.12);color:var(--gl);margin-top:7px;}
-.hc-price{font-family:var(--serif);font-size:22px;color:var(--gl);white-space:nowrap;}
+.hc-sub{font-size:10px;color:rgba(200,185,165,0.35);margin-top:2px;}
+.hc-badge{display:inline-block;font-size:9px;padding:2px 8px;background:rgba(184,149,106,0.15);color:var(--gl);margin-top:6px;letter-spacing:0.06em;}
+.hc-price{font-family:var(--serif);font-size:22px;color:var(--gl);white-space:nowrap;flex-shrink:0;margin-left:16px;}
 .hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:9px;color:rgba(184,149,106,0.25);letter-spacing:0.2em;text-transform:uppercase;}
 .scroll-l{width:0.5px;height:36px;background:linear-gradient(to bottom,rgba(184,149,106,0.25),transparent);animation:sl 2s ease-in-out infinite;}
 @keyframes sl{0%,100%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}}
@@ -103,12 +111,12 @@ header.scrolled .hamburger span{background:var(--text);}
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:2.5rem;}
 .pc{background:var(--ivory);border:0.5px solid var(--border);padding:1.6rem;position:relative;}
 .pc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0.35;}
-.pc-icon{font-size:18px;margin-bottom:12px;opacity:0.7;}
+.pc-icon{display:none;}
 .pc-text{font-size:13px;color:var(--text);line-height:1.8;font-weight:400;}
-.pain-ans{margin-top:2.5rem;background:var(--dark);padding:2.25rem;display:flex;gap:1.75rem;align-items:center;}
-.pain-ans-icon{font-size:28px;flex-shrink:0;opacity:0.55;}
-.pain-ans-body{font-size:13px;color:rgba(200,185,165,0.6);line-height:1.9;}
-.pain-ans-body strong{color:#E8DFD0;font-weight:400;font-size:15px;display:block;margin-bottom:5px;}
+.pain-ans{margin-top:3rem;padding:2.5rem 3rem;background:var(--ivory);border-top:1px solid var(--gold);border-bottom:1px solid rgba(184,149,106,0.2);display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;}
+.pain-ans-icon{display:none;}
+.pain-ans-body{font-size:13px;color:var(--tm);line-height:1.9;grid-column:1/-1;}
+.pain-ans-body strong{font-family:var(--serif);color:var(--text);font-weight:400;font-size:22px;display:block;margin-bottom:12px;letter-spacing:0.06em;}
 
 /* FEATURES */
 .features{padding:7rem 0;background:var(--ivory);}
@@ -146,7 +154,7 @@ header.scrolled .hamburger span{background:var(--text);}
 .fp-note{font-size:10px;color:rgba(200,185,165,0.3);}
 .first-includes{margin-bottom:1.75rem;}
 .fi-item{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(200,185,165,0.5);margin-bottom:5px;}
-.fi-item::before{content:'✓';color:var(--sage);font-size:10px;}
+.fi-item::before{content:'✦';color:var(--sage);font-size:10px;}
 .first-fine{font-size:10px;color:rgba(200,185,165,0.25);line-height:1.7;margin-top:1rem;}
 
 /* MENU */
@@ -309,7 +317,11 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
 
 /* RESPONSIVE */
 @media(max-width:960px){
+  .hero-photo{display:none;}
+  .hero-deco{display:none;}
   .hero-inner{grid-template-columns:1fr;padding-top:100px;padding-bottom:70px;}
+  .hero-h1{white-space:normal;font-size:clamp(40px,8vw,58px);}
+  .hero-h1 em{white-space:normal;}
   .hero-card{display:none;}
   .ti{padding:0.9rem 1.25rem;border:none;border-bottom:0.5px solid rgba(255,255,255,0.04);}
   .pain-grid{grid-template-columns:1fr 1fr;}
@@ -340,7 +352,7 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
 
 <!-- FLOATING CTA -->
 <div class="float-cta" id="floatCta">
-  <a href="https://www.instagram.com/menard_kanayama" target="_blank" class="fb fb-sub">📸 Instagram DM</a>
+  <a href="https://www.instagram.com/menard_kanayama" target="_blank" class="fb fb-sub">◎ Instagram DM</a>
   <a href="#contact" class="fb fb-main">✦ ご予約・無料相談</a>
 </div>
 
@@ -372,6 +384,13 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
 <!-- ① HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
+  <div class="hero-photo">
+    <div class="hero-photo-inner">
+      <div class="hero-photo-icon"></div>
+      <div class="hero-photo-text">Photo Coming Soon</div>
+    </div>
+  </div>
+  <div class="hero-deco"></div>
   <div class="hero-ring"></div>
   <div class="hero-inner">
     <div class="hero-left">
@@ -410,11 +429,11 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
 <!-- TRUST BAR -->
 <div class="trust">
   <div class="trust-inner">
-    <div class="ti"><div class="ti-icon">🌿</div><div class="ti-text"><strong>日本メナード化粧品</strong> 使用</div></div>
-    <div class="ti"><div class="ti-icon">🔒</div><div class="ti-text"><strong>完全予約制</strong> プライベート</div></div>
-    <div class="ti"><div class="ti-icon">🚃</div><div class="ti-text">金山駅 <strong>徒歩5分</strong></div></div>
-    <div class="ti"><div class="ti-icon">⏰</div><div class="ti-text"><strong>9:00〜22:00</strong> 不定休</div></div>
-    <div class="ti"><div class="ti-icon">✨</div><div class="ti-text">初回体験 <strong>¥3,300</strong></div></div>
+    <div class="ti"><div class="ti-icon"></div><div class="ti-text"><strong>日本メナード化粧品</strong> 使用</div></div>
+    <div class="ti"><div class="ti-icon">◈</div><div class="ti-text"><strong>完全予約制</strong> プライベート</div></div>
+    <div class="ti"><div class="ti-icon">◎</div><div class="ti-text">金山駅 <strong>徒歩5分</strong></div></div>
+    <div class="ti"><div class="ti-icon">◇</div><div class="ti-text"><strong>9:00〜22:00</strong> 不定休</div></div>
+    <div class="ti"><div class="ti-icon"></div><div class="ti-text">初回体験 <strong>¥3,300</strong></div></div>
   </div>
 </div>
 
@@ -424,18 +443,20 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
     <div class="se">こんなお悩みありませんか？</div>
     <h2 class="sh">肌のことが<br><em>気になっているあなたへ</em></h2>
     <div class="pain-grid">
-      <div class="pc"><div class="pc-icon">😟</div><div class="pc-text">スキンケアを続けているのに、なかなか改善されない</div></div>
-      <div class="pc"><div class="pc-icon">😔</div><div class="pc-text">シミ・シワ・毛穴が気になりはじめた。何から始めればいいかわからない</div></div>
-      <div class="pc"><div class="pc-icon">😌</div><div class="pc-text">自分に合ったスキンケアをプロに教えてもらいたい</div></div>
-      <div class="pc"><div class="pc-icon">🌿</div><div class="pc-text">忙しい毎日の中で、自分だけのリラックスできる時間が欲しい</div></div>
-      <div class="pc"><div class="pc-icon">💆</div><div class="pc-text">エステに興味があるが初めてで緊張する。気軽に試したい</div></div>
-      <div class="pc"><div class="pc-icon">✨</div><div class="pc-text">特別なケアで、本来の肌の美しさを引き出したい</div></div>
+      <div class="pc"><div class="pc-icon" style="font-size:0;width:24px;height:1px;background:var(--gold);opacity:0.4;margin-bottom:16px;"></div><div class="pc-text">スキンケアを続けているのに、なかなか改善されない</div></div>
+      <div class="pc"><div class="pc-icon" style="font-size:0;width:24px;height:1px;background:var(--gold);opacity:0.4;margin-bottom:16px;"></div><div class="pc-text">シミ・シワ・毛穴が気になりはじめた。何から始めればいいかわからない</div></div>
+      <div class="pc"><div class="pc-icon" style="font-size:0;width:24px;height:1px;background:var(--gold);opacity:0.4;margin-bottom:16px;"></div><div class="pc-text">自分に合ったスキンケアをプロに教えてもらいたい</div></div>
+      <div class="pc"><div class="pc-icon" style="font-size:0;width:24px;height:1px;background:var(--gold);opacity:0.4;margin-bottom:16px;"></div><div class="pc-text">忙しい毎日の中で、自分だけのリラックスできる時間が欲しい</div></div>
+      <div class="pc"><div class="pc-icon" style="font-size:0;width:24px;height:1px;background:var(--gold);opacity:0.4;margin-bottom:16px;"></div><div class="pc-text">エステに興味があるが初めてで緊張する。気軽に試したい</div></div>
+      <div class="pc"><div class="pc-icon" style="font-size:0;width:24px;height:1px;background:var(--gold);opacity:0.4;margin-bottom:16px;"></div><div class="pc-text">特別なケアで、本来の肌の美しさを引き出したい</div></div>
     </div>
     <div class="pain-ans">
-      <div class="pain-ans-icon">💡</div>
       <div class="pain-ans-body">
         <strong>MENARD KANAYAMAがお応えします</strong>
         まずは無料でお肌のご相談を承っております。肌のプロが丁寧にカウンセリングし、あなたに最適なケアをご提案します。初めての方も安心してお越しください。
+        <div style="margin-top:1.5rem;">
+          <a href="#contact" style="display:inline-block;padding:12px 28px;background:var(--gold);color:white;text-decoration:none;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;transition:background 0.3s;" onmouseover="this.style.background='#A0844F'" onmouseout="this.style.background='var(--gold)'">無料相談はこちら →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -472,7 +493,7 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
       <div class="first-steps">
         <div class="fstep"><div class="fstep-n">01</div><div><div class="fstep-title">まずは無料相談</div><div class="fstep-desc">フォームまたはInstagram DMからお気軽にご連絡ください。肌のお悩みを何でもご相談いただけます。</div></div></div>
         <div class="fstep"><div class="fstep-n">02</div><div><div class="fstep-title">初回体験コースでお試し</div><div class="fstep-desc">¥3,300（120分）の特別価格で本格エステをご体験いただけます。カウンセリング込みです。</div></div></div>
-        <div class="fstep"><div class="fstep-n">03</div><div><div class="fstep-title">住所は予約確定後にご案内</div><div class="fstep-desc">完全予約制のため、詳しい住所はご予約確定後にお知らせします。建物写真もお送りします。</div></div></div>
+        <div class="fstep"><div class="fstep-n">03</div><div><div class="fstep-title">ご来店</div><div class="fstep-desc">愛知県名古屋市中区平和1丁目22-15 NR金山202号室。金山駅から徒歩5分。お車の場合は近隣のコインパーキングをご利用ください（確認中）。</div></div></div>
       </div>
       <div class="first-card">
         <div class="first-card-title">初回体験コース</div>
@@ -488,7 +509,7 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
           <div class="fi-item">次回のご提案</div>
         </div>
         <a href="#contact" class="btn-g" style="display:block;text-align:center;">初回体験を予約する →</a>
-        <div class="first-fine">※ご予約確定後に詳しい住所をお知らせします<br>※お問い合わせ・ご相談は無料です</div>
+        <div class="first-fine">※ 愛知県名古屋市中区平和1丁目22-15 NR金山202号室<br>※ お問い合わせ・ご相談は無料です</div>
       </div>
     </div>
   </div>
@@ -546,7 +567,7 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
     <h2 class="sh">初めてでも<em>迷わない</em>、<br>5つのステップ</h2>
     <div class="proc-steps">
       <div class="ps"><div class="ps-n">01</div><div class="ps-title">ご予約・相談</div><div class="ps-desc">フォームまたはInstagram DMからご連絡ください</div></div>
-      <div class="ps"><div class="ps-n">02</div><div class="ps-title">住所のご案内</div><div class="ps-desc">予約確定後に詳しい住所・建物写真をお送りします</div></div>
+      <div class="ps"><div class="ps-n">02</div><div class="ps-title">住所のご案内</div><div class="ps-desc">愛知県名古屋市中区平和1丁目22-15 NR金山202号室</div></div>
       <div class="ps"><div class="ps-n">03</div><div class="ps-title">ご来店</div><div class="ps-desc">金山駅より徒歩5分。安心してお越しください</div></div>
       <div class="ps"><div class="ps-n">04</div><div class="ps-title">カウンセリング</div><div class="ps-desc">肌状態・体調・お悩みを丁寧にお聞きします</div></div>
       <div class="ps"><div class="ps-n">05</div><div class="ps-title">施術・お会計</div><div class="ps-desc">ゆったりとした空間で心ゆくまでお楽しみください</div></div>
@@ -562,7 +583,7 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
     <h2 class="sh" style="text-align:center;">サロンの最新情報を<br><em>Instagramで発信中</em></h2>
     <p class="sp" style="text-align:center;">開業準備の様子やスキンケア情報をInstagramで更新しています。</p>
     <div style="text-align:center;">
-      <a href="https://www.instagram.com/menard_kanayama" target="_blank" class="insta-handle">📸 &nbsp; @menard_kanayama をフォローする</a>
+      <a href="https://www.instagram.com/menard_kanayama" target="_blank" class="insta-handle">◎ &nbsp; @menard_kanayama をフォローする</a>
     </div>
     <div class="insta-embed">
       <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/menard_kanayama/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);"></blockquote>
@@ -581,14 +602,29 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
     <h2 class="sh">アクセス</h2>
     <div class="access-grid">
       <div>
-        <div class="ab"><div class="ab-label">住所</div><div class="ab-val">名古屋市中区 金山エリア<small>※ 詳細な住所はご予約確定後にお知らせします</small></div></div>
+        <div class="ab"><div class="ab-label">住所</div><div class="ab-val">愛知県名古屋市中区平和1丁目22-15<br>NR金山 202号室</div></div>
         <div class="ab"><div class="ab-label">営業時間</div><div class="ab-val">9:00 〜 22:00<small>不定休</small></div></div>
-        <div class="ast"><div class="ast-icon">🚃</div><div class="ast-name">金山駅</div><div><span class="ast-time">5</span><span class="ast-unit">分</span></div></div>
-        <div class="ast"><div class="ast-icon">🚃</div><div class="ast-name">東別院駅</div><div><span class="ast-time">6</span><span class="ast-unit">分</span></div></div>
-        <div class="acc-note"><strong>完全予約制のため、</strong>詳しい住所はご予約確定後にお知らせします。建物外観の写真もお送りしますので、初めての方も安心してお越しいただけます。</div>
+        <div class="ab"><div class="ab-label">お車でお越しの方</div><div class="ab-val">近隣のコインパーキングをご利用ください<small>※ 詳細は確認中。確定次第更新します。</small></div></div>
+        <div class="ast"><div class="ast-icon">◎</div><div class="ast-name">金山駅</div><div><span class="ast-time">5</span><span class="ast-unit">分</span></div></div>
+        <div class="ast"><div class="ast-icon">◎</div><div class="ast-name">東別院駅</div><div><span class="ast-time">6</span><span class="ast-unit">分</span></div></div>
+        <div class="acc-note"><strong>愛知県名古屋市中区平和1丁目22-15 NR金山202号室。</strong>金山駅から徒歩5分・東別院駅から徒歩6分。初めての方も安心してお越しください。</div>
       </div>
       <div>
-        <div class="acc-map"><div class="acc-map-txt">地図は準備中です</div></div>
+        <div style="border-radius:0;overflow:hidden;border:0.5px solid rgba(255,255,255,0.05);">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.058509448742!2d136.89617731523438!3d35.14706599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003761e9ae6e6e7%3A0x1e8f8d8b8c8d8e8f!2z5oSb55-l55yM5ZCN5Y-k5biC5Lit5Yy65bmz5ZKM77yR5LiB55uu77yS77yS4oiS77yR77yV!5e0!3m2!1sja!2sjp!4v1710000000000!5m2!1sja!2sjp"
+            width="100%"
+            height="420"
+            style="border:0;display:block;filter:grayscale(20%) contrast(1.05);border-radius:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="MENARD KANAYAMA アクセスマップ">
+          </iframe>
+        </div>
+        <a href="https://maps.google.com/?q=愛知県名古屋市中区平和1丁目22-15" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:10px;color:rgba(200,185,165,0.4);letter-spacing:0.08em;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gl)'" onmouseout="this.style.color='rgba(200,185,165,0.4)'">
+          ◎ Google マップで開く →
+        </a>
       </div>
     </div>
   </div>
@@ -604,7 +640,7 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
         <div class="ci-block">
           <div class="ci-label">Instagram DM</div>
           <div class="ci-val"><a href="https://www.instagram.com/menard_kanayama" target="_blank">@menard_kanayama</a></div>
-          <a href="https://www.instagram.com/menard_kanayama" target="_blank" class="ci-ig">📸 Instagram でDMする</a>
+          <a href="https://www.instagram.com/menard_kanayama" target="_blank" class="ci-ig">◎ Instagram でDMする</a>
         </div>
         <div class="ci-block">
           <div class="ci-label">営業時間</div>
@@ -623,7 +659,7 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
         <div class="cf" id="cfArea">
           <div class="ftype">
             <button class="ft active" onclick="setType(this,'consult')" type="button"><div class="ft-icon">💬</div><span class="ft-label">無料肌相談</span><span class="ft-sub">まず相談したい</span></button>
-            <button class="ft" onclick="setType(this,'trial')" type="button"><div class="ft-icon">✨</div><span class="ft-label">体験予約</span><span class="ft-sub">初回¥3,300</span></button>
+            <button class="ft" onclick="setType(this,'trial')" type="button"><div class="ft-icon"></div><span class="ft-label">体験予約</span><span class="ft-sub">初回¥3,300</span></button>
             <button class="ft" onclick="setType(this,'general')" type="button"><div class="ft-icon">📋</div><span class="ft-label">その他の予約</span><span class="ft-sub">通常コースなど</span></button>
           </div>
           <div class="fnote" id="fNote">お肌のお悩みを気軽にご相談ください。無料でお答えします。</div>
@@ -651,7 +687,7 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
             <select class="fs" id="s"><option value="">選択してください</option><option>Instagram</option><option>Google検索</option><option>知人・友人からの紹介</option><option>その他</option></select>
           </div>
           <button class="fsub" id="fsb" onclick="sendForm()">送信する</button>
-          <p class="ffine">※ 返信まで2〜3営業日いただく場合がございます<br>※ 詳細な住所はご予約確定後にお知らせします</p>
+          <p class="ffine">※ 返信まで2〜3営業日いただく場合がございます<br>※ 愛知県名古屋市中区平和1丁目22-15 NR金山202号室</p>
         </div>
         <div class="fsuccess" id="fsuc">
           <div class="fsuccess-icon">✦</div>
@@ -670,7 +706,7 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
   <p class="cf-body">2026年7月、名古屋・金山にオープン。<br>まずはお気軽にご相談ください。</p>
   <div class="cf-btns">
     <a href="#contact" class="btn-g">無料相談・ご予約はこちら</a>
-    <a href="https://www.instagram.com/menard_kanayama" target="_blank" class="btn-o">📸 Instagram をフォロー</a>
+    <a href="https://www.instagram.com/menard_kanayama" target="_blank" class="btn-o">◎ Instagram をフォロー</a>
   </div>
 </section>
 
