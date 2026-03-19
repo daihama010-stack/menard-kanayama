@@ -12,7 +12,7 @@
 <script>
 // キャッシュバスター - 常に最新版を表示
 (function(){
-  var VERSION = '20260318-v9';
+  var VERSION = '20260319-v1';
   var stored = sessionStorage.getItem('mk_version');
   if (stored !== VERSION) {
     sessionStorage.setItem('mk_version', VERSION);
@@ -802,18 +802,21 @@ function sendForm(){
     _subject: '【MENARD KANAYAMA】お問い合わせ：'+(document.getElementById('n').value)+'様',
     _replyto: document.getElementById('e').value
   };
-  fetch('https://menard-form-api.daihama010.workers.dev/submit',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify(data)
-  }).then(function(r){
-    if(r.ok){
-      document.getElementById('cfArea').style.display='none';
-      document.getElementById('fsuc').style.display='block';
-    } else {
-      btn.disabled=false;btn.textContent='送信する';
-      alert('送信に失敗しました。しばらくしてからもう一度お試しください。');
-    }
+  // CloudflareとFormspree両方に送信
+  Promise.all([
+    fetch('https://menard-form-api.daihama010.workers.dev/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(data)
+    }),
+    fetch('https://formspree.io/f/xbdzqnpy',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(data)
+    })
+  ]).then(function(){
+    document.getElementById('cfArea').style.display='none';
+    document.getElementById('fsuc').style.display='block';
   }).catch(function(){
     btn.disabled=false;btn.textContent='送信する';
     alert('送信に失敗しました。しばらくしてからもう一度お試しください。');
