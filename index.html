@@ -802,7 +802,7 @@ function sendForm(){
     _subject: '【MENARD KANAYAMA】お問い合わせ：'+(document.getElementById('n').value)+'様',
     _replyto: document.getElementById('e').value
   };
-  fetch('https://formspree.io/f/xbdzqnpy',{
+  fetch('https://menard-form-api.daihama010.workers.dev/submit',{
     method:'POST',
     headers:{'Content-Type':'application/json','Accept':'application/json'},
     body:JSON.stringify(data)
