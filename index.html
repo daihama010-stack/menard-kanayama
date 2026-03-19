@@ -654,6 +654,10 @@ footer{background:#0F0E0C;padding:2.25rem 0 1.75rem;}
     <div class="contact-grid">
       <div>
         <div class="ci-block">
+          <div class="ci-label">メールアドレス</div>
+          <div class="ci-val"><a href="mailto:info@menard-kanayama.com">info@menard-kanayama.com</a></div>
+        </div>
+        <div class="ci-block">
           <div class="ci-label">Instagram DM</div>
           <div class="ci-val"><a href="https://www.instagram.com/menard_kanayama" target="_blank">@menard_kanayama</a></div>
           <a href="https://www.instagram.com/menard_kanayama" target="_blank" class="ci-ig">◎ Instagram でDMする</a>
@@ -769,6 +773,7 @@ var notes = {
 function setType(btn,type){
   document.querySelectorAll('.ft').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
+  window._ftype=type;
   document.getElementById('fNote').textContent = notes[type];
   if(type==='trial') document.getElementById('c').value='初回体験コース（¥3,300・120分）';
 }
@@ -781,10 +786,38 @@ function sendForm(){
   if(!ok)return;
   var btn=document.getElementById('fsb');
   btn.disabled=true;btn.textContent='送信中...';
-  setTimeout(function(){
-    document.getElementById('cfArea').style.display='none';
-    document.getElementById('fsuc').style.display='block';
-  },800);
+  var typeMap={'consult':'無料肌相談','trial':'体験予約','general':'その他の予約'};
+  var data={
+    お名前: document.getElementById('n').value,
+    ふりがな: document.getElementById('f').value,
+    性別: document.getElementById('g').value,
+    メールアドレス: document.getElementById('e').value,
+    電話番号: document.getElementById('t').value,
+    問い合わせ種別: typeMap[window._ftype]||'無料肌相談',
+    ご希望のコース: document.getElementById('c').value,
+    第1希望日時: document.getElementById('d1').value,
+    第2希望日時: document.getElementById('d2').value,
+    お問い合わせ内容: document.getElementById('m').value,
+    お知りになったきっかけ: document.getElementById('s').value,
+    _subject: '【MENARD KANAYAMA】お問い合わせ：'+(document.getElementById('n').value)+'様',
+    _replyto: document.getElementById('e').value
+  };
+  fetch('https://formspree.io/f/xbdzqnpy',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(data)
+  }).then(function(r){
+    if(r.ok){
+      document.getElementById('cfArea').style.display='none';
+      document.getElementById('fsuc').style.display='block';
+    } else {
+      btn.disabled=false;btn.textContent='送信する';
+      alert('送信に失敗しました。しばらくしてからもう一度お試しください。');
+    }
+  }).catch(function(){
+    btn.disabled=false;btn.textContent='送信する';
+    alert('送信に失敗しました。しばらくしてからもう一度お試しください。');
+  });
 }
 // Menu card group hover
 var menuCards = document.querySelectorAll('.mc');
